@@ -27,14 +27,14 @@
 | Column                       | Data Type | Non-Null Count | Notes |
 |------------------------------|-----------|----------------|-------|
 | `product_id`                 | str       | 32,951         | Primary key |
-| `product_category_name`      | str       | 32,341         | Foreign key to customers table |
-| `product_name_lenght`        | float64   | 32,341         | `processing`, `delivered`, `shipped`, `canceled`, etc |
-| `product_description_lenght` | float64   | 32,341         | When the order is placed/created/checked out |
-| `product_photos_qty`         | float64   | 32,341         | When payment is approved by the seller (could be nullable) |
-| `product_weight_g`           | float64   | 32,949         | When order reached shipping carrier |
-| `product_length_cm`          | float64   | 32,949         | When customer received the order |
-| `product_height_cm`          | float64   | 32,949         | Estimated delivery date provided at purchase |
-| `product_width_cm`           | float64   | 32,949         | Estimated delivery date provided at purchase |
+| `product_category_name`      | str       | 32,341         |  |
+| `product_name_lenght`        | float64   | 32,341         |  |
+| `product_description_lenght` | float64   | 32,341         |  |
+| `product_photos_qty`         | float64   | 32,341         |  |
+| `product_weight_g`           | float64   | 32,949         |  |
+| `product_length_cm`          | float64   | 32,949         |  |
+| `product_height_cm`          | float64   | 32,949         |  |
+| `product_width_cm`           | float64   | 32,949         |  |
 
 - **Primary Key:** `product_id`
 - **Relationships:** linked to *olist_order_items_dataset* via `product_id`
@@ -47,7 +47,8 @@
     - `product_weight_g`          : 2
     - `product_length_cm`         : 2
     - `product_height_cm`         : 2
-    - `product_width_cm`          : 2 <2 products with no dimensions or weigth>
+    - `product_width_cm`          : 2
+    >2 products with no dimensions or weigth>
 - **Duplicate Rows:** 
   - *ZERO* duplicate rows
   

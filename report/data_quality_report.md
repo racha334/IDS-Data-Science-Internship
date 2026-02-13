@@ -60,7 +60,7 @@
 
 ## 4. Datatype Checks
 - Timestamps were converted from strings to datetime
-- 
+
 ## 5. Non delivered Orders
 - All non delivered orders have been dropped
 
