@@ -1,7 +1,7 @@
 # Data Quality Report
 
 **Dataset:** `olist_customers_dataset.csv` --> `customers_clean.csv` 
-**Date:** 2026-02-13
+**Date:** 2026-02-12
 
 ## 1. Null Value Checks
 - No missing values
@@ -18,6 +18,30 @@
 
 ## 5. State Standardization
 - All values in `customer_state` were already in UPPERCASE.
+
+
+**Dataset:** `olist_products_dataset.csv` --> `products_clean.csv` 
+**Date:** 2026-02-13
+
+## 1. Null Value Checks
+- product_name_lenght           610
+- product_description_lenght    610
+- product_photos_qty            610
+- product_weight_g                2
+- product_length_cm               2
+- product_height_cm               2
+- product_width_cm                2
+
+## 2. Duplicate Checks
+- **Product ID:** Unique, primray key
+- No duplicate rows
+
+## 3. Whitespace Checks
+- All leading and trailing whitespaces have been trimmed
+
+## 4. Normalization:
+- Converted all letters to lowercase in `product_category_name`
+- Replaced spaces with underscores `product_category_name`
 
 
 **Dataset:** `olist_orders_dataset.csv` --> `orders_clean.csv` 
