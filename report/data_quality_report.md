@@ -74,3 +74,12 @@ Some simple indicators have been added
 - has_carrier_date: carrier delivery date available
 - has_delivered   : customer delivery date available
 
+## 7. Delivery Consistency
+- Purchase date VS Delivery Date
+  - 13 orders have been delivered in the same day 
+  - 26380 order have been delivered after more than 14 days
+- Delivery Date VS Estimated Delivery Date
+  - 88649 orders were *early*
+  - 7827  orders were *delayed*
+  - 2965  orders were *estimated correctly*
+
