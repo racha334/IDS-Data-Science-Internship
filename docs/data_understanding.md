@@ -48,7 +48,7 @@
     - `product_length_cm`         : 2
     - `product_height_cm`         : 2
     - `product_width_cm`          : 2
-    >2 products with no dimensions or weigth>
+    >2 products with no dimensions or weigth
 - **Duplicate Rows:** 
   - *ZERO* duplicate rows
   
