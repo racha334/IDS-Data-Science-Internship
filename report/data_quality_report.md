@@ -68,18 +68,28 @@
 Some simple indicators have been added
 - order_date
 - delivery_date
-- delivery_days   : delivery_date - order_date
-- is_delayed      : delivery_date > order_estimated_delivery_date
-- has_approved    : approval date available
-- has_carrier_date: carrier delivery date available
-- has_delivered   : customer delivery date available
+- delivery_days     : delivery_date - order_date
+- is_delayed        : delivery_date > order_estimated_delivery_date
+- has_approved      : approval date available
+- has_carrier_date  : carrier delivery date available
+- has_delivered     : customer delivery date available
+- invalid_timestamps: True if one of these inequalities is true: purchase > approval >= carrier >= delivered
 
 ## 7. Delivery Consistency
 - Purchase date VS Delivery Date
-  - 13 orders have been delivered in the same day 
-  - 26380 order have been delivered after more than 14 days
+- 13 orders have been delivered in the same day 
+- 26380 order have been delivered after more than 14 days
 - Delivery Date VS Estimated Delivery Date
-  - 88649 orders were *early*
-  - 7827  orders were *delayed*
-  - 2965  orders were *estimated correctly*
+- 88649 orders were *early*
+- 7827  orders were *delayed*
+- 2965  orders were *estimated correctly*
+
+## 8. Invalid Timestamps
+- purchase >  approval : 0
+- approval >= carrier  : 1359
+    - 1350 delivered
+    - 9    shipped
+- carrier  >= delivered: 32
+    - 32 delivered
+
 
