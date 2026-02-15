@@ -31,6 +31,7 @@
 - product_length_cm               2
 - product_height_cm               2
 - product_width_cm                2
+- These rows were kept
 
 ## 2. Duplicate Checks
 - **Product ID:** Unique, primray key
@@ -48,11 +49,14 @@
 **Date:** 2026-02-13
 
 ## 1. Null Value Checks
-- No missing values -----<<<>>>
+- order_approved_at                 160
+- order_delivered_carrier_date     1783
+- order_delivered_customer_date    2965
+- No missing values in primary key
 
 ## 2. Duplicate Checks
 - **Order ID:** Unique, primray key
-- **Customer ID:** Unique, foreign key
+- **Customer ID:** foreign key
 - No duplicate rows
 
 ## 3. Whitespace Checks
@@ -93,3 +97,26 @@ Some simple indicators have been added
     - 32 delivered
 
 
+**Dataset:** `olist_order_items_dataset.csv` + `olist_orders_dataset.csv` --> `orders_revenue_enriched.csv` 
+**Date:** 2026-02-15
+
+## 1. Null Value Checks
+- No missing values in `orders_revenue_enriched.csv`
+
+## 2. Duplicate Checks
+- No duplicate rows in `orders_revenue_enriched.csv`
+- `order_id` is unique in the new enriched csv
+
+
+## 3. Whitespace Checks
+- All leading and trailing whitespaces have been trimmed
+
+## 4. Row Count Consistency
+- Orders rows: 99441   
+- Order items rows: 112650  
+- Joined rows: 112650  
+> Join preserved items rows
+
+## 5. Revenue Non-Negativity
+- Negative product revenue rows: 0  
+- Negative total paid rows     : 0 

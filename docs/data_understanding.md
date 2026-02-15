@@ -87,3 +87,36 @@
     - *ZERO* duplicate rows
 - **Order Status:** `delivered`, `shipped`, `canceled`, `unavailable`, `invoiced`, `processing`, `created`, `approved`
 
+## 4. Order Items
++ rows: 112650
++ columns: 7
+
+| Column                | Data Type | Non-Null Count | Notes |
+|-----------------------|-----------|----------------|-------|
+| `order_id`            | str       | 112,650        | Foreign key to orders table |
+| `order_item_id`       | int64     | 112,650        | sequential number identifying number of items included in the same order. |
+| `product_id`          | str       | 112,650        | product unique identifier |
+| `seller_id`           | str       | 112,650        | seller unique identifier |
+| `shipping_limit_date` | str       | 112,650        | the seller shipping limit date for handling the order over to the logistic partner. |
+| `price`               | str       | 112,650        | item price |
+| `freight_value`       | float64   | 112,650        | item freight value item (if an order has more than one item the freight value is splitted between items) |
+
+
+- **Primary Key:** Composite `order_id` & `order_item_id`
+- **Relationships:**
+    - linked to *olist_orders_dataset*   via `order_id`
+    - linked to *olist_sellers_dataset*  via `seller_id`
+    - linked to *olist_products_dataset* via `product_id`
+- **Data Issues:** 
+    - Timestamps are stored as strings
+    - Prices are stored as strings
+    - Orders with no items have the following order_status:
+        - unavailable    603
+        - canceled       164
+        - created          5
+        - invoiced         2
+        - shipped          1
+- **Missing Values:** 
+    - *ZERO* missing values
+- **Duplicate Rows:** 
+    - *ZERO* duplicate rows
