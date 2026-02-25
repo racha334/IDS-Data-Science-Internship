@@ -11,11 +11,13 @@ joined["total_per_item"] = joined["price"] + joined["freight_value"]
 
 ## Aggregate to order level
 orders_level = (joined.groupby("order_id")
-    .agg(order_items_revenue=("price", "sum"), order_total=("total_per_item", "sum"))
+    .agg(order_items_revenue=("price", "sum"),
+         order_freight=("freight_value", "sum"),
+         order_total=("total_per_item", "sum"))
     .reset_index())
 
 orders_level["order_items_revenue"] = orders_level["order_items_revenue"].round(2)
 orders_level["order_total"] = orders_level["order_total"].round(2)
-
+ 
 ## orders_revenue_enriched.csv
 orders_level.to_csv("data/processed/orders_revenue_enriched.csv", index=False)

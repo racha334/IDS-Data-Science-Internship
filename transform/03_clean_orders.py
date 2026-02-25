@@ -35,11 +35,14 @@ kpi_mask = (
     (~df["invalid_timestamps"])
 )
 
-df.loc[kpi_mask, "order_date"] = df.loc[kpi_mask, "order_purchase_timestamp"].dt.date
-df.loc[kpi_mask, "delivery_date"] = df.loc[kpi_mask, "order_delivered_customer_date"].dt.date
+df.loc[kpi_mask, "order_date"] = df.loc[kpi_mask, "order_purchase_timestamp"]
+df.loc[kpi_mask, "delivery_date"] = df.loc[kpi_mask, "order_delivered_customer_date"]
 df.loc[kpi_mask, "delivery_days"] = (df.loc[kpi_mask, "order_delivered_customer_date"] - df.loc[kpi_mask, "order_purchase_timestamp"]).dt.days
 df.loc[kpi_mask, "is_delayed"] = (df.loc[kpi_mask, "order_delivered_customer_date"] > df.loc[kpi_mask, "order_estimated_delivery_date"])
 
+df["delivery_days"] = pd.to_numeric(df["delivery_days"], errors="coerce")
+df["delivery_days"] = df["delivery_days"].round().astype("Int64")
+## df["is_delayed"] = df["is_delayed"].astype("boolean")
 print(df.dtypes)
 print(df.isna().sum())
 

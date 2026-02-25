@@ -1,7 +1,6 @@
 import pandas as pd
 
-df_raw = pd.read_csv("data/raw/olist_products_dataset.csv")
-df = df_raw.copy()
+df = pd.read_csv("data/raw/olist_products_dataset.csv")
 
 df = df.apply(lambda col: col.str.strip() if col.dtype == "object" else col)
 df['product_category_name'] = df['product_category_name'].fillna("unknown")
