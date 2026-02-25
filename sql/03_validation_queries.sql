@@ -19,3 +19,8 @@ LEFT JOIN dw.dim_customers c
 ON f.customer_sk = c.customer_sk
 WHERE c.customer_sk IS NULL;
 
+SELECT f.order_id
+FROM dw.fact_orders f
+LEFT JOIN dw.dim_date d
+ON f.order_date_sk = d.date_sk
+WHERE d.date_sk IS NULL;
